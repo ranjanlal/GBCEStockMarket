@@ -45,31 +45,31 @@ A Service representing operations in the Trading System of Global Beverage Corpo
 
 ## Solution Design
 
-### 3-Tier Architecture
+#### 3-Tier Architecture
 	
 The application tries to follow the standard 3 Tier JEE architecture. As per one of the constraints, the UI (Presentation Layer) is not included. But other layers are created i.e. Service layer and the DAO layer. All data is held in memory. No database is used. A simple data store is created using Maps. There are no explicit integration requirements provided. So, the simplest decision was to create a java library, which could be integrated in all other JAVA technologies and architectures. 
 
 The design is flexible and extensible. It can be integrated with an existing web application, or can be published as web service or REST APIs to be consumed by external systems.
 
-### Class Diagram
+#### Class Diagram
 
 The class diagram for the solution is available at : <project root>/resources/diagram/GBCEStockMarket_ClassDiagram.png
 
 ## Implementation 
 
-### Project Management / Build Framework
+#### Project Management / Build Framework
 
 The project was planned to be implemented as a JAR/Library. I chose Maven for its easy project management and build capabilities. I started off with creating a maven project integrated in Eclipse IDE with archetype as - "maven-archetype-quickstart".
 
-### Application Framework
+#### Application Framework
 
 The application must follow OO Principles. To implement a cohesive and loosely coupled structure (Trying to follow SOLID principles) I chose to use Spring Framework for the Application context and Dependency Injection. Added Spring 4 dependencies in Maven POM.xml 
 
-### Unit Test Framework
+#### Unit Test Framework
 
 Trying to follow TDD approach I chose to use TestNG framework as it provides many features to make testing more powerful and easier to do. Added TestNG dependencies in POM.xml. Created a testng.xml file to create a test suite to include all my test classes. Configured path to testng.xml (src/test/java/resources) in POM file using maven-surefire-plugin.
 
-### Logging Framework
+#### Logging Framework
 
 As a better option to Log4J in terms of configuration and faster implementation, I chose to use Logback SLF4j for logging purpose. By default, Spring uses the Jakarta Commons Logging API (JCL). So to integrate Logback with spring I made following changes in POM.xml:
 	1. Excluded commons-logging from spring-core 
@@ -77,7 +77,7 @@ As a better option to Log4J in terms of configuration and faster implementation,
 	3. Included logback as dependency
 	4. Created a logback.xml in the src/main/resources folder
 
-### Coding
+#### Coding
 
 I started with creating a Test class - StockServiceTest to write test cases for the Stock Service application. To utilize Spring's Dependency Injection in TestNG unit test i have to extend StockServiceTest class from AbstractTestNGSpringContextTests. Also using Spring 4 feature of Java based context configuration, I created StockMarketTestSpringConfig class to hold bean definitions. I created a bean to hold a Map with Stock data already provided in the requirements.
 
