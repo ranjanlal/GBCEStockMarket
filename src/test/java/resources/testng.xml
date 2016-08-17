@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="TestAll">
+
+	<test name="stockTest">
+		<classes>
+			<class name="com.gbce.stockmarket.dao.StockDaoTest" />
+		</classes>
+	</test>
+
+	<test name="tradeTest">
+		<classes>
+			<class name="com.gbce.stockmarket.dao.TradeDaoTest" />
+		</classes>
+	</test>
+
+	<test name="stockServiceTest">
+		<classes>
+			<class name="com.gbce.stockmarket.service.StockServiceTest" />
+		</classes>
+	</test>
+
+</suite>
